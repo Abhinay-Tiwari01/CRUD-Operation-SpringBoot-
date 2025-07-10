@@ -1,0 +1,23 @@
+/* Create/Edit Form Card */
+.form-card {
+  background-color: #2d2d44;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.form-label {
+  color: #ccc;
+}
+
+.form-control {
+  background-color: #2a2a3d;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.form-control:focus {
+  background-color: #2a2a3d;
+  border-color: #007bff;
+  box-shadow: none;
+}

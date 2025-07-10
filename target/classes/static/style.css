@@ -1,0 +1,99 @@
+/* ========== Base Styles ========== */
+body {
+  background-color: #1e1e2f;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== Header Section ========== */
+.header-section {
+  background-color: #2d2d44;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* ========== Input Styles ========== */
+input.form-control {
+  background-color: #2a2a3d;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+/* ========== Table Styles ========== */
+.table {
+  margin-top: 20px;
+}
+
+.table thead {
+  background-color: #3b3b50;
+}
+
+th .action_buttons
+{
+    align-items: end;
+}
+
+/* th.actions-column,
+td.actions-column {
+  width: 30%;
+  white-space: nowrap;
+  vertical-align: middle;
+} */
+
+.table tbody tr:hover {
+  background-color: #2d2d44;
+}
+
+/* ========== Button Styles ========== */
+.btn {
+  border: none;
+}
+
+.btn-success {
+  background-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* ========== Responsive Fixes ==========
+@media (max-width: 768px) {
+  .header-section .row > div {
+    text-align: center !important;
+    margin-bottom: 10px;
+  }
+
+  th.actions-column,
+  td.actions-column {
+    width: auto;
+  }
+} */
