@@ -31,6 +31,7 @@ public class SayhHelloController {
         studentEntity.setName(studentData.getName()); // name whichh give  in createstudent html
         studentEntity.setAddress(studentData.getAddress()); //address whichh give in createstudent html
 
+        studentEntity.setImage(studentData.getImage());
         studentRepo.save(studentEntity);
         return "redirect:/allStudent";
     }
@@ -38,14 +39,16 @@ public class SayhHelloController {
     @GetMapping(value = "/createdStudent")
     public String createStudent(Model model) {
         model.addAttribute("student", new StudentData());
-        return "createdStudent";
+        return "createdNewStudent";
     }
 
     @GetMapping(value = "/allStudent")
     public String showAllStudents(Model model) {
+
         model.addAttribute("allStudent", studentRepo.findAll());
         return "welcome";
     }
+
 
     @GetMapping(value = "/deleteStudent/{id}")
     public String deleteStudent(@PathVariable Integer id) {
@@ -66,8 +69,12 @@ public class SayhHelloController {
     public String editStudent(@PathVariable Integer studentID, Model model) {
         StudentEntity student = studentRepo.findById(studentID).orElse(null);
         model.addAttribute("student", student);
-        return "createdStudent"; // same form for create/edit
+        return "createdNewStudent"; // same form for create/edit
     }
+
+
+//    @PostMapping(value="/studentImage")
+//    public String
 
 //    @PostMapping("/updateStudent")
 //    public String updateStudent(@ModelAttribute("studentData") StudentData studentData) {

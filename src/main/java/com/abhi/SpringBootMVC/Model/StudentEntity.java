@@ -22,6 +22,11 @@ public class StudentEntity {
     @Column(name = "student_address")
     private String address;
 
+    @Lob
+//    @Column(columnDefinition = "LONGBLOB")
+    private byte[] image;
+
+
     public StudentEntity() {
     }
 
@@ -55,6 +60,14 @@ public class StudentEntity {
         this.address = address;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "StudentEntity{" +
@@ -63,4 +76,6 @@ public class StudentEntity {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+
 }

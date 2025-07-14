@@ -1,5 +1,10 @@
 com\abhi\SpringBootMVC\Model\StudentData.class
 com\abhi\SpringBootMVC\Controller\SayhHelloController.class
+com\abhi\SpringBootMVC\Controller\AttributeControllers\AttributeController.class
 com\abhi\SpringBootMVC\Repositry\StudentRepo.class
 com\abhi\SpringBootMVC\SpringBootMvcApplication.class
 com\abhi\SpringBootMVC\Model\StudentEntity.class
+com\abhi\SpringBootMVC\Repositry\LoginRepo.class
+com\abhi\SpringBootMVC\Controller\LoginPageController.class
+com\abhi\SpringBootMVC\Model\LoginInfo.class
+com\abhi\SpringBootMVC\Model\LoginEntity.class

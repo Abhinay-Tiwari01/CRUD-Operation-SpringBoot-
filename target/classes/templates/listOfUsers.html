@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Student CRUD</title>
+    <title>Users List</title>
 
     <!-- Bootstrap CDN -->
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -18,7 +18,8 @@
 <!-- Top Navbar -->
 <nav class="navbar navbar-dark bg-dark mb-4">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">CRUD Students System</span>
+        <span class="navbar-brand mb-0 h1">Admin DashBoard</span>
+        <span class="navbar-brand mb-0 h1">List Of Users</span>
     </div>
 </nav>
 
@@ -27,12 +28,12 @@
     <div class="row align-items-center">
         <div class="col-md-7 mb-2">
             <a class="btn btn-success"
-               href="/createdStudent">
-                Add New Student</a>
+               href="/createNewLogin">
+                Add New User</a>
             <a class="btn btn-danger"
                onclick="return confirm('Are you sure you want to delete ALL students?');"
-               th:href="@{/deleteAllStudent}">
-                Delete All Students</a>
+               th:href="@{/deleteAllUSers}">
+                Delete All Users</a>
         </div>
 
         <div class="col-md-5 text-end">
@@ -48,35 +49,27 @@
         <tr>
             <th style="width:10% ">Sr No</th>
             <th>ID</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Student Images</th>
+            <th>Users Name</th>
+            <th>Passwords</th>
+            <th>Mobile Nos.</th>
+
             <th class="action_buttons" style="width : 20%;">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student,iterStat : ${allStudent}">
+        <tr th:each="userInfo,iterStat : ${userList}">
             <td th:text="${iterStat.count}"></td>
-            <td th:text="${student.StudentId}"></td>
-            <td th:text="${student.name}"></td>
-            <td th:text="${student.address}"></td>
-<!--                        <td id="studentImage"><img alt="Student Image" class="student-img"-->
-<!--                                                   th:src="@{'/images/' + ${student.Image}}"/></td>-->
-<!--            <td id="studentImage"><img alt="Student Image" class="student-img"-->
-<!--                                       th:src="'data:image/jpeg;base64,' + ${student.base64Image}"/>-->
-            <td id="studentImage">
-                <img alt="Student Image" class="student-img"
-                     th:src=" ${student.Image}"/>
-            </td>
+            <td th:text="${userInfo.userId}"></td>
+            <td th:text="${userInfo.userName}"></td>
+            <td th:text="${userInfo.password}"></td>
+            <td th:text="${userInfo.mobile}"></td>
+
 
             </td>
             <td class="actions-column">
                 <a class="btn btn-danger btn-sm me-1"
-                   th:href="@{/deleteStudent/{id}(id=${student.StudentId})}">Delete</a>
-
-                <a class="btn btn-primary btn-sm me-1" th:href="@{/editStudent/{id}(id=${student.StudentId})}">Edit</a>
-
-                <!--                <a class="btn btn-warning btn-sm " th:href="@{/updateStudent/{id}(id=${student.StudentId})}">Update</a>-->
+                   th:href="@{/deleteUser/{id}(id=${userInfo.userId})}">Delete</a>
+<!--                <a class="btn btn-primary btn-sm me-1" th:href="@{/editUser/{id}(id=${userInfo.mobile})}">Edit</a>-->
             </td>
 
         </tr>
@@ -86,18 +79,7 @@
 </main>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".student-img").forEach(img => {
-      img.addEventListener("click", () => {
-        if (img.requestFullscreen) {
-          img.requestFullscreen();
-        } else if (img.webkitRequestFullscreen) { /* Safari */
-          img.webkitRequestFullscreen();
-        } else if (img.msRequestFullscreen) { /* IE11 */
-          img.msRequestFullscreen();
-        }
-      });
-    });
-  });
+
     <!--    Get the search box and the table rows-->
         const searchBox = document.getElementById("searchBox");
 
@@ -109,15 +91,15 @@
           const colSrNo = row.querySelector("td:nth-child(1)"); // 1st column = Sr No
             const colId = row.querySelector("td:nth-child(2)"); // 2nd column = Id
             const colName = row.querySelector("td:nth-child(3)");// 3rd column = Name
-            const colAdd = row.querySelector("td:nth-child(4)");// 4th column = Address
+            const colAdd = row.querySelector("td:nth-child(4)");// 4th column = Password
 
             if (colSrNo || colId || colName || colAdd) {
               const srNoText = colSrNo.textContent.toLowerCase();
               const idText = colId.textContent.toLowerCase();
               const nameText = colName.textContent.toLowerCase();
-              const addressText = colAdd.textContent.toLowerCase();
+              const passwordText = colAdd.textContent.toLowerCase();
 
-              if (srNoText.includes(filter) || idText.includes(filter) || nameText.includes(filter) ||addressText.includes(filter)) {
+              if (srNoText.includes(filter) || idText.includes(filter) || nameText.includes(filter) ||passwordText.includes(filter)) {
                 row.style.display = "";
               } else {
                 row.style.display = "none";

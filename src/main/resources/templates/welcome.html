@@ -50,6 +50,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Address</th>
+            <th>Student Images</th>
             <th class="action_buttons" style="width : 20%;">Actions</th>
         </tr>
         </thead>
@@ -59,6 +60,16 @@
             <td th:text="${student.StudentId}"></td>
             <td th:text="${student.name}"></td>
             <td th:text="${student.address}"></td>
+<!--                        <td id="studentImage"><img alt="Student Image" class="student-img"-->
+<!--                                                   th:src="@{'/images/' + ${student.Image}}"/></td>-->
+<!--            <td id="studentImage"><img alt="Student Image" class="student-img"-->
+<!--                                       th:src="'data:image/jpeg;base64,' + ${student.base64Image}"/>-->
+            <td id="studentImage">
+                <img alt="Student Image" class="student-img"
+                     th:src=" ${student.Image}"/>
+            </td>
+
+            </td>
             <td class="actions-column">
                 <a class="btn btn-danger btn-sm me-1"
                    th:href="@{/deleteStudent/{id}(id=${student.StudentId})}">Delete</a>
@@ -74,6 +85,19 @@
     </table>
 </main>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".student-img").forEach(img => {
+      img.addEventListener("click", () => {
+        if (img.requestFullscreen) {
+          img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) { /* Safari */
+          img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) { /* IE11 */
+          img.msRequestFullscreen();
+        }
+      });
+    });
+  });
     <!--    Get the search box and the table rows-->
         const searchBox = document.getElementById("searchBox");
 
@@ -101,6 +125,7 @@
             }
           });
         });
+
 </script>
 
 

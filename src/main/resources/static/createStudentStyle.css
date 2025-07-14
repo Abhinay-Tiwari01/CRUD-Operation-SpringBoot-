@@ -21,3 +21,40 @@
   border-color: #007bff;
   box-shadow: none;
 }
+
+
+/*============Imae Css Code==============*/
+/* Make the input look consistent */
+.custom-file-input {
+  border: 2px dashed #6c757d; /* dashed border for file input */
+  padding: 10px;
+  background-color: #f8f9fa; /* light background */
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.custom-file-input:hover {
+  border-color: #0d6efd; /* Bootstrap primary blue */
+  background-color: #e9ecef;
+}
+
+.custom-file-input:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  .form-label {
+    font-weight: 600;
+    color: #212529; /* Bootstrap dark */
+  }
+/* If you ever use type=text for path input */
+input[type="text"].form-control {
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"].form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+}

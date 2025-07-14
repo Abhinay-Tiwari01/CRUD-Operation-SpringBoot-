@@ -85,6 +85,21 @@ td.actions-column {
   background-color: #e0a800;
 }
 
+/*================Image Upload Css Code===================*/
+/* Image ko table cell me fit karne ke liye */
+#studentImage .student-img {
+  max-width: 100px; /* ya jitna chhota chahiye utna */
+  max-height: 60px; /* row height se match karna */
+  object-fit: cover;
+  cursor: pointer; /* mouse pointer change */
+  border-radius: 4px; /* thoda rounded look */
+  transition: transform 0.2s;
+}
+
+#studentImage .student-img:hover {
+  transform: scale(1.05);
+}
+
 /* ========== Responsive Fixes ==========
 @media (max-width: 768px) {
   .header-section .row > div {

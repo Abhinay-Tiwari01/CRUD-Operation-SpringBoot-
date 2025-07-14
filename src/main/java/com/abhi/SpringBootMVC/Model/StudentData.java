@@ -2,6 +2,7 @@ package com.abhi.SpringBootMVC.Model;
 
 public class StudentData {
 
+    public byte[] Image;
     private Integer studentId;
     private String name;
     private String address;
@@ -28,6 +29,14 @@ public class StudentData {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public byte[] getImage() {
+        return Image;
+    }
+
+    public void setImage(byte[] image) {
+        Image = image;
     }
 
     @Override
